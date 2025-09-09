@@ -1,0 +1,20 @@
+{
+  "build": {
+    "development": {
+      "ios": {
+        "simulator": true
+      },
+      "android": {
+        "simulator": true
+      }
+    },
+    "apk-production": {
+      "distribution": "internal",
+      "developmentClient": false,
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
+      }
+    }
+  }
+}

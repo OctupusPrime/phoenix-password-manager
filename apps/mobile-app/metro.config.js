@@ -17,6 +17,7 @@ config.resolver.nodeModulesPaths = [
   path.resolve(projectRoot, 'node_modules'),
   path.resolve(monorepoRoot, 'node_modules'),
 ];
+// Without this flag app will not compile
 config.resolver.disableHierarchicalLookup = true;
 
 // Ensure we resolve symlinks (important for pnpm)
@@ -35,5 +36,8 @@ config.resolver.resolveRequest = (context, moduleName, platform) => {
   }
   return context.resolveRequest(context, moduleName, platform);
 };
+
+// Drizzle setup requires this
+config.resolver.sourceExts.push('sql');
 
 module.exports = config;

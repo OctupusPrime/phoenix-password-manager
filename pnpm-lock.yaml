@@ -59,6 +59,9 @@ importers:
       react-native-edge-to-edge:
         specifier: ~1.7.0
         version: 1.7.0(react-native@0.81.1(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
+      react-native-mmkv:
+        specifier: ~3.3.1
+        version: 3.3.1(react-native@0.81.1(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
       react-native-nitro-modules:
         specifier: ~0.29.4
         version: 0.29.4(react-native@0.81.1(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
@@ -3934,6 +3937,12 @@ packages:
 
   react-native-is-edge-to-edge@1.2.1:
     resolution: {integrity: sha512-FLbPWl/MyYQWz+KwqOZsSyj2JmLKglHatd3xLZWskXOpRaio4LfEDEz8E/A6uD8QoTHW6Aobw1jbEwK7KMgR7Q==}
+    peerDependencies:
+      react: '*'
+      react-native: '*'
+
+  react-native-mmkv@3.3.1:
+    resolution: {integrity: sha512-LYamDWQirPTUJZ9Re+BkCD+zLRGNr+EVJDeIeblvoJXGatWy9PXnChtajDSLqwjX3EXVeUyjgrembs7wlBw9ug==}
     peerDependencies:
       react: '*'
       react-native: '*'
@@ -9130,6 +9139,11 @@ snapshots:
       react-native: 0.81.1(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0)
 
   react-native-is-edge-to-edge@1.2.1(react-native@0.81.1(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+      react-native: 0.81.1(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0)
+
+  react-native-mmkv@3.3.1(react-native@0.81.1(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0):
     dependencies:
       react: 19.1.0
       react-native: 0.81.1(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0)

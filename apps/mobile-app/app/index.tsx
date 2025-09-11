@@ -8,6 +8,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { Text, View, Button } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import * as LocalAuthentication from 'expo-local-authentication';
 
 import { useSQLiteContext } from '@/lib/db';
 
@@ -33,6 +34,18 @@ export default function IndexPage() {
 
   const { t, i18n } = useTranslation();
 
+  const handleAuthentication = async () => {
+    try {
+      const result = await LocalAuthentication.authenticateAsync({
+        biometricsSecurityLevel: 'strong',
+      });
+
+      console.log('Authentication result:', result);
+    } catch (error) {
+      console.error('Authentication error:', error);
+    }
+  };
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>{t('sample')}</Text>
@@ -51,6 +64,8 @@ export default function IndexPage() {
           randomWidth.value = Math.random() * 350;
         }}
       />
+
+      <Button title="Authenticate" onPress={handleAuthentication} />
     </View>
   );
 }

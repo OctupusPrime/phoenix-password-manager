@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import Animated, {
   useSharedValue,
@@ -9,7 +10,6 @@ import { Text, View, Button } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { useSQLiteContext } from '@/lib/db';
-import { storage } from '@/lib/mmkv';
 
 export default function IndexPage() {
   const { db, status, error, connect, disconnect } = useSQLiteContext();
@@ -31,13 +31,13 @@ export default function IndexPage() {
     };
   });
 
-  useEffect(() => {
-    console.log('storage.getAllKeys()', storage.getAllKeys());
-  }, []);
+  const { t, i18n } = useTranslation();
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Welcome to Phoenix Password Manager</Text>
+      <Text>{t('sample')}</Text>
+      <Button title="EN" onPress={() => i18n.changeLanguage('en')} />
+      <Button title="UK" onPress={() => i18n.changeLanguage('uk')} />
 
       <Text style={{ marginVertical: 16 }}>Db Status: {status}</Text>
       <Text style={{ marginVertical: 16 }}>Db Error: {error}</Text>
@@ -49,13 +49,6 @@ export default function IndexPage() {
         title="toggle"
         onPress={() => {
           randomWidth.value = Math.random() * 350;
-        }}
-      />
-
-      <Button
-        title="mmkv toggle"
-        onPress={() => {
-          storage.set('test', Math.random().toString());
         }}
       />
     </View>

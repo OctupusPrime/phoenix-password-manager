@@ -1,6 +1,6 @@
 import { Stack } from 'expo-router';
 
-import { SQLiteProvider } from '@/db/SQLite.context';
+import { SQLiteProvider } from '@/lib/db';
 
 export default function RootLayout() {
   return (

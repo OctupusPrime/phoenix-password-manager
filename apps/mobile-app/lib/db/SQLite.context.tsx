@@ -7,6 +7,8 @@ import * as schema from './schema';
 import migrations from '@/drizzle/migrations';
 import { createSafeContext } from '@/utils/create-safe-context';
 
+const DATABASE_FILE = 'app.db';
+
 type Database = ExpoSQLiteDatabase<typeof schema>;
 type ConnectionStatus =
   | 'disconnecting'
@@ -20,7 +22,7 @@ export interface SQLiteContextValue {
   status: ConnectionStatus;
   error: string | null;
 
-  connect: () => Promise<void>;
+  connect: (password: string) => Promise<void>;
   disconnect: () => Promise<void>;
 }
 
@@ -38,16 +40,17 @@ const SQLiteProvider = ({ children }: SQLiteProviderProps) => {
   const [status, setStatus] = useState<ConnectionStatus>('disconnected');
   const [error, setError] = useState<string | null>(null);
 
-  const connect = async () => {
+  const connect = async (password: string) => {
     if (status !== 'disconnected') return;
 
     setStatus('connecting');
     setError(null);
 
     try {
-      const expoSQLite = await openDatabaseAsync('main.db');
-      await expoSQLite.execAsync('PRAGMA journal_mode = WAL');
-      await expoSQLite.execAsync('PRAGMA foreign_keys = ON');
+      const expoSQLite = await openDatabaseAsync(DATABASE_FILE);
+      await expoSQLite.execAsync(`PRAGMA key = '${password}';`);
+      await expoSQLite.execAsync('PRAGMA journal_mode = WAL;');
+      await expoSQLite.execAsync('PRAGMA foreign_keys = ON;');
 
       const drizzleSQLite = drizzle(expoSQLite);
       await migrate(drizzleSQLite, migrations);

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Animated, {
   useSharedValue,
   withTiming,
@@ -7,10 +8,14 @@ import Animated, {
 import { Text, View, Button } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { useSQLiteContext } from '@/db/SQLite.context';
+import { useSQLiteContext } from '@/lib/db';
 
 export default function IndexPage() {
-  const { status, connect } = useSQLiteContext();
+  const { db, status, error, connect, disconnect } = useSQLiteContext();
+
+  useEffect(() => {
+    console.log('DB CHANGED', db);
+  }, [db]);
 
   const randomWidth = useSharedValue(10);
 
@@ -28,8 +33,11 @@ export default function IndexPage() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Welcome to Phoenix Password Manager</Text>
+
       <Text style={{ marginVertical: 16 }}>Db Status: {status}</Text>
-      <Button title="Connect" onPress={connect} />
+      <Text style={{ marginVertical: 16 }}>Db Error: {error}</Text>
+      <Button title="Connect" onPress={() => connect('password')} />
+      <Button title="Disconnect" onPress={disconnect} />
 
       <Animated.View style={[styles.box, style]} />
       <Button

@@ -4,7 +4,8 @@ import Animated, {
   useAnimatedStyle,
   Easing,
 } from 'react-native-reanimated';
-import { Text, View, Button, StyleSheet } from 'react-native';
+import { Text, View, Button } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 import { useSQLiteContext } from '@/db/SQLite.context';
 

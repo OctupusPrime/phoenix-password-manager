@@ -8,9 +8,19 @@ import Animated, {
 } from 'react-native-reanimated';
 import { Text, View, Button } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { FlashList } from '@shopify/flash-list';
 import * as LocalAuthentication from 'expo-local-authentication';
 
 import { useSQLiteContext } from '@/lib/db';
+
+const DATA = [
+  {
+    title: 'First Item',
+  },
+  {
+    title: 'Second Item',
+  },
+];
 
 export default function IndexPage() {
   const { db, status, error, connect, disconnect } = useSQLiteContext();
@@ -66,6 +76,17 @@ export default function IndexPage() {
       />
 
       <Button title="Authenticate" onPress={handleAuthentication} />
+
+      <FlashList
+        data={DATA}
+        renderItem={({ item }) => <Text>{item.title}</Text>}
+        style={{
+          backgroundColor: 'red',
+          height: 200,
+          width: '100%',
+          marginTop: 20,
+        }}
+      />
     </View>
   );
 }

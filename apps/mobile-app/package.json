@@ -8,6 +8,7 @@
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
+    "@shopify/flash-list": "~2.0.3",
     "babel-plugin-inline-import": "~3.0.0",
     "drizzle-orm": "~0.44.5",
     "expo": "~54.0.0-preview.15",

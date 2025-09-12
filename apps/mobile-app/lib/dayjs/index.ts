@@ -11,8 +11,4 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(advancedFormat);
 
-const setDayjsLocale = (locale: string) => {
-  dayjs.locale(locale);
-};
-
-export { dayjs, setDayjsLocale };
+export { dayjs };

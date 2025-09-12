@@ -9,6 +9,7 @@ import Animated, {
 import { Text, View, Button } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { FlashList } from '@shopify/flash-list';
+import { useQueryClient } from '@tanstack/react-query';
 import * as LocalAuthentication from 'expo-local-authentication';
 
 import { useSQLiteContext } from '@/lib/db';
@@ -55,6 +56,12 @@ export default function IndexPage() {
       console.error('Authentication error:', error);
     }
   };
+
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    console.log('Query Client Changed', queryClient.getDefaultOptions());
+  }, [queryClient]);
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>

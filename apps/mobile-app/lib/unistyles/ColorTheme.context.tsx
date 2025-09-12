@@ -14,10 +14,12 @@ export interface ColorThemeContextValue {
     preferredAppearance: string;
     mainColor: string;
   };
-  setColorTheme: (newTheme: {
-    mainColor: string;
-    preferredAppearance: string;
-  }) => void;
+  setColorTheme: (
+    updater: Partial<{
+      mainColor: string;
+      preferredAppearance: string;
+    }>,
+  ) => void;
 }
 
 const [Provider, useColorThemeContext] =
@@ -32,10 +34,17 @@ interface ColorThemeProviderProps {
 const ColorThemeProvider = ({ children }: ColorThemeProviderProps) => {
   const [colorTheme, setColorTheme] = useState(getStoredColorTheme());
 
-  const handleSetColorTheme = (newTheme: {
-    mainColor: string;
-    preferredAppearance: string;
-  }) => {
+  const handleSetColorTheme = (
+    updater: Partial<{
+      mainColor: string;
+      preferredAppearance: string;
+    }>,
+  ) => {
+    const newTheme = {
+      ...colorTheme,
+      ...updater,
+    };
+
     setColorTheme(newTheme);
     setStoreColorTheme(newTheme);
 

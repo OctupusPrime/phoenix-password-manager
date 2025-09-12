@@ -95,15 +95,11 @@ export default function IndexPage() {
 
       <Button
         title="LightMode"
-        onPress={() =>
-          setColorTheme({ mainColor: 'purple', preferredAppearance: 'light' })
-        }
+        onPress={() => setColorTheme({ preferredAppearance: 'light' })}
       />
       <Button
         title="DarkMode"
-        onPress={() =>
-          setColorTheme({ mainColor: 'purple', preferredAppearance: 'dark' })
-        }
+        onPress={() => setColorTheme({ preferredAppearance: 'dark' })}
       />
 
       <FlashList

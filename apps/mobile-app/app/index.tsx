@@ -15,6 +15,7 @@ import * as LocalAuthentication from 'expo-local-authentication';
 
 import { useSQLiteContext } from '@/lib/db';
 import { dayjs } from '@/lib/dayjs';
+import { useColorThemeContext } from '@/lib/unistyles';
 
 const DATA = [
   {
@@ -65,6 +66,8 @@ export default function IndexPage() {
     console.log('Query Client Changed', queryClient.getDefaultOptions());
   }, [queryClient]);
 
+  const { setColorTheme } = useColorThemeContext();
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>{t('sample')}</Text>
@@ -90,6 +93,19 @@ export default function IndexPage() {
 
       <Button title="Authenticate" onPress={handleAuthentication} />
 
+      <Button
+        title="LightMode"
+        onPress={() =>
+          setColorTheme({ mainColor: 'purple', preferredAppearance: 'light' })
+        }
+      />
+      <Button
+        title="DarkMode"
+        onPress={() =>
+          setColorTheme({ mainColor: 'purple', preferredAppearance: 'dark' })
+        }
+      />
+
       <FlashList
         data={DATA}
         renderItem={({ item }) => <Text>{item.title}</Text>}
@@ -104,11 +120,11 @@ export default function IndexPage() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create((theme) => ({
   box: {
     width: 100,
     height: 80,
-    backgroundColor: 'black',
+    backgroundColor: theme.colors.primary,
     margin: 30,
   },
-});
+}));

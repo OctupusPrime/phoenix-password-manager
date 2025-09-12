@@ -13,6 +13,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import * as LocalAuthentication from 'expo-local-authentication';
 
 import { useSQLiteContext } from '@/lib/db';
+import { dayjs } from '@/lib/dayjs';
 
 const DATA = [
   {
@@ -68,6 +69,8 @@ export default function IndexPage() {
       <Text>{t('sample')}</Text>
       <Button title="EN" onPress={() => i18n.changeLanguage('en')} />
       <Button title="UK" onPress={() => i18n.changeLanguage('uk')} />
+
+      <Text>{dayjs().format('MMMM D, YYYY')}</Text>
 
       <Text style={{ marginVertical: 16 }}>Db Status: {status}</Text>
       <Text style={{ marginVertical: 16 }}>Db Error: {error}</Text>

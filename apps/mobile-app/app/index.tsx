@@ -9,6 +9,7 @@ import Animated, {
 import { Text, View, Button } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { FlashList } from '@shopify/flash-list';
+import { CameraIcon } from 'lucide-react-native';
 import { useQueryClient } from '@tanstack/react-query';
 import * as LocalAuthentication from 'expo-local-authentication';
 
@@ -69,6 +70,8 @@ export default function IndexPage() {
       <Text>{t('sample')}</Text>
       <Button title="EN" onPress={() => i18n.changeLanguage('en')} />
       <Button title="UK" onPress={() => i18n.changeLanguage('uk')} />
+
+      <CameraIcon color="red" size={48} />
 
       <Text>{dayjs().format('MMMM D, YYYY')}</Text>
 

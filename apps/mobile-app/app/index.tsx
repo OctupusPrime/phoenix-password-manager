@@ -12,6 +12,7 @@ import { FlashList } from '@shopify/flash-list';
 import { useQueryClient } from '@tanstack/react-query';
 import * as LocalAuthentication from 'expo-local-authentication';
 
+import { Typography } from '@/components/ui/Typography';
 import { Icon } from '@/components/ui/Icon';
 
 import { useSQLiteContext } from '@/lib/db';
@@ -71,17 +72,14 @@ export default function IndexPage() {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text
+      <Typography
+        typescale="display-l"
         style={{
-          fontFamily: 'Roboto',
           color: '#6200ee',
-          fontSize: 57,
-          fontWeight: '500',
-          letterSpacing: -0.25,
         }}
       >
-        Display
-      </Text>
+        {t('sample')}
+      </Typography>
       <Button title="EN" onPress={() => i18n.changeLanguage('en')} />
       <Button title="UK" onPress={() => i18n.changeLanguage('uk')} />
 

@@ -9,9 +9,10 @@ import Animated, {
 import { Text, View, Button } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { FlashList } from '@shopify/flash-list';
-import { CameraIcon } from 'lucide-react-native';
 import { useQueryClient } from '@tanstack/react-query';
 import * as LocalAuthentication from 'expo-local-authentication';
+
+import { Icon } from '@/components/ui/Icon';
 
 import { useSQLiteContext } from '@/lib/db';
 import { dayjs } from '@/lib/dayjs';
@@ -74,27 +75,18 @@ export default function IndexPage() {
         style={{
           fontFamily: 'Roboto',
           color: '#6200ee',
-          fontSize: 24,
+          fontSize: 57,
           fontWeight: '500',
           letterSpacing: -0.25,
         }}
       >
-        {t('sample')}
-      </Text>
-      <Text
-        style={{
-          fontFamily: 'Material Symbols Outlined',
-          color: '#6200ee',
-          fontSize: 24,
-          backgroundColor: 'red',
-        }}
-      >
-        settings
+        Display
       </Text>
       <Button title="EN" onPress={() => i18n.changeLanguage('en')} />
       <Button title="UK" onPress={() => i18n.changeLanguage('uk')} />
 
-      <CameraIcon color="red" size={48} />
+      <Icon name="home" size={48} color="#6200ee" filled />
+      <Icon name="settings" size={24} />
 
       <Text>{dayjs().format('MMMM D, YYYY')}</Text>
 

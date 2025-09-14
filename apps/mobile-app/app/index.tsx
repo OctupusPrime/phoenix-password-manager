@@ -70,7 +70,27 @@ export default function IndexPage() {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>{t('sample')}</Text>
+      <Text
+        style={{
+          fontFamily: 'Roboto',
+          color: '#6200ee',
+          fontSize: 24,
+          fontWeight: '500',
+          letterSpacing: -0.25,
+        }}
+      >
+        {t('sample')}
+      </Text>
+      <Text
+        style={{
+          fontFamily: 'Material Symbols Outlined',
+          color: '#6200ee',
+          fontSize: 24,
+          backgroundColor: 'red',
+        }}
+      >
+        settings
+      </Text>
       <Button title="EN" onPress={() => i18n.changeLanguage('en')} />
       <Button title="UK" onPress={() => i18n.changeLanguage('uk')} />
 

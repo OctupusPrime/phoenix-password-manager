@@ -45,6 +45,140 @@
         {
           "faceIDPermission": "Allow $(PRODUCT_NAME) to use Face ID."
         }
+      ],
+      [
+        "expo-font",
+        {
+          "android": {
+            "fonts": [
+              {
+                "fontFamily": "Roboto",
+                "fontDefinitions": [
+                  {
+                    "path": "./assets/fonts/Roboto-100.ttf",
+                    "weight": "100",
+                    "style": "normal"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-Italic-100.ttf",
+                    "weight": "100",
+                    "style": "italic"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-200.ttf",
+                    "weight": "200",
+                    "style": "normal"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-Italic-200.ttf",
+                    "weight": "200",
+                    "style": "italic"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-300.ttf",
+                    "weight": "300",
+                    "style": "normal"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-Italic-300.ttf",
+                    "weight": "300",
+                    "style": "italic"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-400.ttf",
+                    "weight": "400",
+                    "style": "normal"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-Italic-400.ttf",
+                    "weight": "400",
+                    "style": "italic"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-500.ttf",
+                    "weight": "500",
+                    "style": "normal"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-Italic-500.ttf",
+                    "weight": "500",
+                    "style": "italic"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-600.ttf",
+                    "weight": "600",
+                    "style": "normal"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-Italic-600.ttf",
+                    "weight": "600",
+                    "style": "italic"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-700.ttf",
+                    "weight": "700",
+                    "style": "normal"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-Italic-700.ttf",
+                    "weight": "700",
+                    "style": "italic"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-800.ttf",
+                    "weight": "800",
+                    "style": "normal"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-Italic-800.ttf",
+                    "weight": "800",
+                    "style": "italic"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-900.ttf",
+                    "weight": "900",
+                    "style": "normal"
+                  },
+                  {
+                    "path": "./assets/fonts/Roboto-Italic-900.ttf",
+                    "weight": "900",
+                    "style": "italic"
+                  }
+                ]
+              },
+
+              {
+                "fontFamily": "Material Symbols Outlined",
+                "fontDefinitions": [
+                  {
+                    "path": "./assets/fonts/Material-Symbols-Outlined.ttf",
+                    "weight": "400",
+                    "style": "normal"
+                  }
+                ]
+              },
+              {
+                "fontFamily": "Material Symbols Outlined Filled",
+                "fontDefinitions": [
+                  {
+                    "path": "./assets/fonts/Material-Symbols-Outlined-Filled.ttf",
+                    "weight": "400",
+                    "style": "normal"
+                  }
+                ]
+              }
+            ]
+          },
+          "ios": {
+            "fonts": [
+              "./assets/fonts/Roboto-Variable.ttf",
+              "./assets/fonts/Roboto-Variable-Italic.ttf",
+
+              "./assets/fonts/Material-Symbols-Outlined.ttf",
+              "./assets/fonts/Material-Symbols-Outlined-Filled.ttf"
+            ]
+          }
+        }
       ]
     ]
   }

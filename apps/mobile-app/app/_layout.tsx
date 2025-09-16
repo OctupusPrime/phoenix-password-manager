@@ -11,7 +11,7 @@ export default function RootLayout() {
       <QueryClientProvider client={queryClient}>
         <ColorThemeProvider>
           <Stack>
-            <Stack.Screen name="index" options={{ title: 'Home' }} />
+            <Stack.Screen name="index" />
           </Stack>
         </ColorThemeProvider>
       </QueryClientProvider>

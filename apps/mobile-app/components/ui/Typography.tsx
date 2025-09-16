@@ -1,5 +1,4 @@
 import { Text } from 'react-native';
-
 import { StyleSheet } from 'react-native-unistyles';
 
 interface TypographyProps extends React.ComponentProps<typeof Text> {
@@ -23,14 +22,14 @@ interface TypographyProps extends React.ComponentProps<typeof Text> {
 
 const Typography = ({
   typescale,
-  style: typographyStyle,
-  ...props
+  style: typographyStyles,
+  ...rest
 }: TypographyProps) => {
   styles.useVariants({
     typescale,
   });
 
-  return <Text style={[styles.text, typographyStyle]} {...props} />;
+  return <Text style={[styles.text, typographyStyles]} {...rest} />;
 };
 
 const styles = StyleSheet.create({
